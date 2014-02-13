@@ -10,7 +10,7 @@ import java.util.Set;
  * For sparse relations with a large extent, this reduces memory usage.
  * However, there is a bit of performance overhead.
  *
- * @author Tom Verhoeff (TU/e)
+ * @author Tom Verhoeff (TU/e) 
  */
 public class IntRelationListOfSets extends IntRelation {
 
