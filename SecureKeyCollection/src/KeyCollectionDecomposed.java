@@ -41,8 +41,7 @@ public class KeyCollectionDecomposed extends AbstractKeyCollection {
 
 //# BEGIN TODO: Functional decomposition; auxiliary method(s) with contracts 
     /**
-     * the function checks if key1 can be converted into key2 and returns a
-     * boolean containing true if it can be converted.
+     * Checks if {@code key1} is convertible into {@code key2} 
      *
      * @param key1 the first key that will be checked with {@code key2}
      * @param key2 the second key that is checked with {@code key1}
@@ -68,7 +67,7 @@ public class KeyCollectionDecomposed extends AbstractKeyCollection {
     }
 
     /**
-     * checks if the row of the key is convertible.
+     * checks if the row is convertible.
      *
      * @param row1 the first row to be checked
      * @param row2 the the second row to be checked

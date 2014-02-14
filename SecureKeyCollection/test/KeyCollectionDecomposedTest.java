@@ -29,13 +29,12 @@ public class KeyCollectionDecomposedTest extends AbstractKeyCollectionTestCases 
     }
 
     /**
-     * Invokes isSecure(keys) and checks result against expResult. Prints a line
-     * to console with the test message.
+     * checks the global variable {@code keys} with the expected result
      *
      * @param msg message
      * @param expResult expected result
      */
-    private void checkKeys(String msg, boolean expResult) {
+    public void checkKeys(String msg, boolean expResult) {
         System.out.println(msg);
         boolean result = instance.isSecure(keys);
         assertEquals(msg, expResult, result);
@@ -205,13 +204,27 @@ public class KeyCollectionDecomposedTest extends AbstractKeyCollectionTestCases 
     protected int[] row1;
     protected int[] row2;
 
-    private void checkRowsConvertible(String msg, boolean expResult) {
+    /**
+     * checks the global variables {@code key1} and {@code key2} with the
+     * expected result.
+     *
+     * @param msg message
+     * @param expResult expected result
+     */
+    public void checkRowsConvertible(String msg, boolean expResult) {
         System.out.println(msg);
         boolean result = instance.isRowKeyConvertable(row1, row2);
         assertEquals(msg, expResult, result);
     }
 
-    private void checkKeysConvertible(String msg, boolean expResult) {
+    /**
+     * checks the global variables {@code row1} and {@code row2} with the
+     * expected result.
+     *
+     * @param msg message
+     * @param expResult expected result
+     */
+    public void checkKeysConvertible(String msg, boolean expResult) {
         System.out.println(msg);
         boolean result = instance.isKeyConvertable(key1, key2);
         assertEquals(msg, expResult, result);
