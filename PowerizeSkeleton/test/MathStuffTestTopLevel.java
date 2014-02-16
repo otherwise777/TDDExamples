@@ -157,6 +157,11 @@ public class MathStuffTestTopLevel {
     }
 
 //# BEGIN TODO Implementations of test cases for powerize(int)
+    /**
+     *
+     * @param n
+     * @param expected
+     */
     private void checkPowerizeException(int n, Class expected) {
         System.out.println("powerize(" + n + "), for exception");
         try {
@@ -186,10 +191,10 @@ public class MathStuffTestTopLevel {
         checkPowerize(5, 4);
     }
 
-//    @Test
-//    public void testSimpleFunction3() {
-//        checkPowerize(2, 31);
-//    }
+    @Test
+    public void testSimpleFunction3() {
+        checkPowerize(Integer.MAX_VALUE, 1);
+    }
 
     @Test
     public void testSimpleFunction5() {

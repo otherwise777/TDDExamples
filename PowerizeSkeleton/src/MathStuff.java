@@ -122,7 +122,7 @@ public abstract class MathStuff {
         if (n < 2) {
             throw new IllegalArgumentException("powerize: input smaller then 2");
         }
-        Power result = new Power(n, 1);
+        Power result = new Power(0, 0);
         for (int i = 1; i <= 30; i++) {
             int expresult = lineairSearchPowerize(n, i);
             if (expresult > 0) {
