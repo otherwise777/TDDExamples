@@ -151,9 +151,8 @@ public abstract class MathStuff {
      * @return the base of exponent {@code exponent} and result {@code n} if no
      * such result exists returns -1
      * @modifies None
-     * @post {@code result == (/while low <= high, mid = (high - low)/2,
-     * powerresult = power(mid,exponent), when powerresult == n, return mid,
-     * else if powerresult > n high = mid - 1, else if powerresult < n low = mid + 1
+     * @post {@code result == (\forall int result, int n, int exponent; n > 0
+     * && exponent > 0 && n = result^exponent; result++)
      */
     public static int binarySearchPowerize(int n, int exponent) {
         long powerResult; //initialize variable

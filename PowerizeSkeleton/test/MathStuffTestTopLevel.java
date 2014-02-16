@@ -196,9 +196,9 @@ public class MathStuffTestTopLevel {
     }
 
     /**
-     * Tests function with large input
+     * Tests function with large input on time 10 seconds
      */
-    @Test
+    @Test(timeout = 10000)
     public void testLargeInputFunction() {
         checkPowerize(80, 2);
     }
