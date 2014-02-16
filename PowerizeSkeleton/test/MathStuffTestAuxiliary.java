@@ -12,73 +12,80 @@ import org.junit.Test;
  *
  * <!--//# BEGIN TODO Name, student id, and date-->
  * <p>
- * <font color="red"><b>Replace this line</b></font></p>
+ * <font color="red"><b>Ligtenberg Wouter 0864271 15-02-2014</b></font></p>
  * <!--//# END TODO-->
  */
 // -----8<----- cut line -----8<-----
 public class MathStuffTestAuxiliary {
 
 //# BEGIN TODO Test cases for auxiliary functions
-    public void checkLineairSearchPowerize(int powerResult, int power, int expResult) {
+    /**
+     * Checks BinarySearchPowerize function with a result and the expected
+     * output the functions checks for power result = x^power where it tries to
+     * find the x, the expected result should be the same as x for the test to
+     * pass
+     *
+     * @param powerResult the base thats being searched for
+     * @param power the exponent of the function
+     * @param expResult the expected result
+     */
+    public void checkBinarySearchPowerize(int powerResult, int power, int expResult) {
         System.out.println("lineair search result " + powerResult + " = x^"
                 + power + ". x would be" + expResult);
-        long result = MathStuff.lineairSearchPowerize(powerResult, power);
+        long result = MathStuff.binarySearchPowerize(powerResult, power);
         assertEquals("result", expResult, result);
     }
 
     /**
-     * simple power.
+     * simple power function
      */
     @Test
-    public void testPower() {
-        checkLineairSearchPowerize(16, 4, 2);
+    public void testBinarySearchPowerize() {
+        checkBinarySearchPowerize(16, 4, 2);
     }
 
+    /**
+     * Test function with power 3
+     */
     @Test
-    public void testPower2() {
-        checkLineairSearchPowerize(3 * 3 * 3, 3, 3);
+    public void BinarySearchPowerizePower3() {
+        checkBinarySearchPowerize(3 * 3 * 3, 3, 3);
     }
 
+    /**
+     * Test function with a non existing base
+     */
     @Test
     public void testPowerZeroResult() {
-        checkLineairSearchPowerize(28, 2, -1);
+        checkBinarySearchPowerize(28, 2, -1);
     }
 
+    /**
+     * Test function with a huge result
+     *
+     */
     @Test
     public void testPowerHugeResult() {
-        checkLineairSearchPowerize(9765625, 5, 25);
+        checkBinarySearchPowerize(9765625, 5, 25);
     }
 
+    /**
+     * Test function with the max integer value
+     */
     @Test
     public void testPowerHugeResul1t() {
-        checkLineairSearchPowerize(Integer.MAX_VALUE, 1, Integer.MAX_VALUE);
+        checkBinarySearchPowerize(Integer.MAX_VALUE, 1, Integer.MAX_VALUE);
     }
 
+    /**
+     * Test function with a huger result outside of the integer value
+     *
+     */
     @Test
     public void testPowerHugeResult2() {
-        checkLineairSearchPowerize(Integer.MAX_VALUE, 2, -1);
+        checkBinarySearchPowerize(Integer.MAX_VALUE, 2, -1);
     }
 
-    @Test
-    public void testPowerHugeResult3() {
-        checkLineairSearchPowerize(1024, 10, 2);
-    }
-
-    @Test
-    public void testPowerHugeResultzero() {
-        checkLineairSearchPowerize(1024, 10, 2);
-    }
-
-    @Test
-    public void testPowerHugeResult4() {
-        checkLineairSearchPowerize(1024, 10, 2);
-    }
-
-    @Test
-    public void testPowerHugeResult5() {
-        checkLineairSearchPowerize(1024, 10, 2);
-    }
 //# END TODO
-
 }
 //# END SKELETON

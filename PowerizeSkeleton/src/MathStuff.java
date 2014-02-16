@@ -97,6 +97,7 @@ public abstract class MathStuff {
      *
      * @param p the base and exponent
      * @pre {@code p != null}
+     *
      * @return {@code power(p.base, p.exponent)}
      * @throws IllegalArgumentException if precondition violated
      */
@@ -120,13 +121,18 @@ public abstract class MathStuff {
 //# BEGIN TODO Implementation of powerize
         //class result = Power
         if (n < 2) {
+            //throw an IllegalArgumentException because it does not require the
+            //pre conditions
             throw new IllegalArgumentException("powerize: input smaller then 2");
         }
-        Power result = new Power(0, 0);
+        Power result = new Power(0, 0); //initialize variable
+        //loops through all the exponents to find the base
         for (int i = 1; i <= 30; i++) {
-            int expresult = lineairSearchPowerize(n, i);
+            int expresult = binarySearchPowerize(n, i); //sets exponentresult
             if (expresult > 0) {
-                result = new Power(expresult, i);
+                //if the expresult is larger then zero it means it found a base
+                result = new Power(expresult, i); //sets reult to the new 
+                //exponent and base
             }
         }
         return result;
@@ -136,29 +142,35 @@ public abstract class MathStuff {
 
 //# BEGIN TODO Contracts and implementations of auxiliary functions.
     /**
-     * tries to find an x so that x^i == n
+     * tries to find an x so that x^i == n it does this by a binary search
+     * method
      *
      * @pre {@code result > 0 && exponent > 0}
-     * @param result
-     * @param exponent
-     * @return
+     * @param n the expected result of {@code power(x,exponent) }
+     * @param exponent the exponent used in the search
+     * @return the base of exponent {@code exponent} and result {@code n} if no
+     * such result exists returns -1
+     * @modifies None
+     * @post {@code result == (/while low <= high, mid = (high - low)/2,
+     * powerresult = power(mid,exponent), when powerresult == n, return mid,
+     * else if powerresult > n high = mid - 1, else if powerresult < n low = mid + 1
      */
-    public static int lineairSearchPowerize(int result, int exponent) {
-        long powerResult;
-        int low = 0;
-        int high = result;
+    public static int binarySearchPowerize(int n, int exponent) {
+        long powerResult; //initialize variable
+        int low = 0; //initialize variable
+        int high = n; //initialize variable
         while (low <= high) {
-            int mid = low + (high - low) / 2;
-            powerResult = power(mid, exponent);
-            if (powerResult == result) {
-                return mid;
-            } else if (powerResult > result) {
-                high = mid - 1;
-            } else if (powerResult < result) {
-                low = mid + 1;
+            int mid = low + (high - low) / 2; //sets the mid value of high and low
+            powerResult = power(mid, exponent); //sets powerresult to mid^exponent
+            if (powerResult == n) {
+                return mid; //returns mid because it is valid
+            } else if (powerResult > n) {
+                high = mid - 1; //lower the highest bound of binary search
+            } else if (powerResult < n) {
+                low = mid + 1; //ups the lower bound of binary search
             }
-        }
-        return -1;
+        } //end of while
+        return -1; //returns -1 because no valid integer was found
     }
 //# END TODO
 }

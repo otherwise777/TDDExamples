@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  *
  * <!--//# BEGIN TODO Name, student id, and date-->
  * <p>
- * <font color="red"><b>Replace this line</b></font></p>
+ * <font color="red"><b>Ligtenberg Wouter 0864271 15-02-2014</b></font></p>
  * <!--//# END TODO-->
  */
 // -----8<----- cut line -----8<-----
@@ -143,6 +143,7 @@ public class MathStuffTestTopLevel {
     /**
      * Invokes powerize(power(expB, expE)) and checks for expected result.
      *
+     *
      * @param expB expected base
      * @param expE expected exponent
      * @pre {@code expB} is not a power with exponent greater than one
@@ -158,11 +159,13 @@ public class MathStuffTestTopLevel {
 
 //# BEGIN TODO Implementations of test cases for powerize(int)
     /**
+     * Invokes {@code powerize(n)} and checks for expected exception.
      *
-     * @param n
-     * @param expected
+     * @pre {@code n } is smaller then 2 thus validating pre condition of powerize
+     * @param n the integer with an illegal input
+     * @param expected expected exception
      */
-    private void checkPowerizeException(int n, Class expected) {
+    public void checkPowerizeException(int n, Class expected) {
         System.out.println("powerize(" + n + "), for exception");
         try {
             MathStuff.powerize(n);
@@ -176,30 +179,38 @@ public class MathStuffTestTopLevel {
         }
     }
 
+    /**
+     * Tests a simple powerize function
+     */
     @Test
     public void testSimpleFunction() {
         checkPowerize(2, 4);
     }
 
+    /**
+     * Tests powerize exception with input 1
+     */
     @Test
     public void testPowerizeExceptionNegative() {
         checkPowerizeException(1, IllegalArgumentException.class);
     }
 
+    /**
+     * Tests function with large input
+     */
     @Test
-    public void testSimpleFunction2() {
-        checkPowerize(5, 4);
+    public void testLargeInputFunction() {
+        checkPowerize(80, 2);
     }
 
+    /**
+     * Tests function with maximum integer input
+     */
     @Test
-    public void testSimpleFunction3() {
+    public void testPowerizeMax() {
         checkPowerize(Integer.MAX_VALUE, 1);
     }
 
-    @Test
-    public void testSimpleFunction5() {
-        checkPowerize(11, 8);
-    }
 //# END TODO
 }
 //# END SKELETON
